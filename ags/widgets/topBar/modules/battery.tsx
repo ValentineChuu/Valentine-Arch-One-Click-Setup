@@ -47,7 +47,7 @@ export default function Power() {
           transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
           transitionDuration={200}
         >
-          <label label={label} />
+          <label label={label(l => " " + l)} />
         </revealer>
       </box>
     </button>

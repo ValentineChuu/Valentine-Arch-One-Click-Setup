@@ -52,7 +52,7 @@ case $gpu_choice in
         ;;
     2)
         echo "Installing AMD drivers..."
-        sudo pacman -S --needed $NOCONFIRM mesa vulkan-radeon rocm-smi-libQ
+        sudo pacman -S --needed $NOCONFIRM mesa vulkan-radeon rocm-smi-lib
         ;;
     3)
         echo "Installing Intel drivers..."
@@ -78,6 +78,7 @@ PACKAGES=(
     pipewire-jack
     wireplumber
     gst-plugin-pipewire
+    unicode-emoji
     noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk
@@ -220,13 +221,28 @@ for dir in "${DOTFILES[@]}"; do
 done
 
 if [ -d "./zsh" ]; then
-    cp -r ./zsh/. "$HOME/"
-    echo "  Deployed zsh -> ~/.zsh/."
+    cp ./zsh/.zshrc "$HOME/.zshrc"
+    cp ./zsh/.p10k.zsh "$HOME/.p10k.zsh"
+    echo "  Deployed .zshrc and .p10k.zsh -> ~/"
 else
     echo "  Warning: ./zsh not found, skipping."
 fi
-echo ""
 
+echo "Deploying oh-my-zsh..."
+if [ -d "./zsh/oh-my-zsh" ]; then
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+        echo "  Cloned fresh oh-my-zsh"
+    else
+        echo "  ~/.oh-my-zsh already exists, skipping clone"
+    fi
+    rsync -av --no-links ./zsh/oh-my-zsh/custom/ "$HOME/.oh-my-zsh/custom/"
+    echo "  Deployed custom/ -> ~/.oh-my-zsh/custom/"
+else
+    echo "  Warning: ./zsh/oh-my-zsh not found, skipping."
+fi
+
+echo ""
 echo "Setting Zsh as default shell..."
 chsh -s "$(which zsh)"
 echo ""

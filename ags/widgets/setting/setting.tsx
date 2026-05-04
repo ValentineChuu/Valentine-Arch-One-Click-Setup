@@ -1,6 +1,5 @@
 import app from "ags/gtk4/app"
 import { Astal, Gtk } from "ags/gtk4"
-import Power from "./modules/battery"
 import Network from "./modules/network"
 import { stopWifiScan } from "../../utils/system/wifi"
 import Bluetooth from "./modules/bluetooth"
@@ -66,7 +65,6 @@ export default function Settings() {
             self.add_controller(click)
           }}
         >
-          <Power />
           <Network />
           <Bluetooth />
           <VolumeSliders />

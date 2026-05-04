@@ -94,7 +94,7 @@ export function createGpuMonitor(): BaseGpuMonitor {
         if (GLib.file_test(memTotalPath, GLib.FileTest.EXISTS)) {
           try {
             const content = GLib.file_get_contents(memTotalPath)
-            vram = parseInt(content[1].toString().trim()) || 0
+            vram = parseInt(new TextDecoder().decode(content[1]).trim()) || 0
           } catch (_) { }
         }
 
