@@ -228,15 +228,15 @@ else
     echo "  Warning: ./zsh not found, skipping."
 fi
 
-echo "Deploying oh-my-zsh..."
+echo "  Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-echo "  Installed oh-my-zsh"
-if [ -d "./zsh/oh-my-zsh/custom" ]; then
-    rsync -av --no-links ./zsh/oh-my-zsh/custom/ "$HOME/.oh-my-zsh/custom/"
-    echo "  Deployed custom/ -> ~/.oh-my-zsh/custom/"
-else
-    echo "  Warning: ./zsh/oh-my-zsh/custom not found, skipping."
-fi
+
+echo ""
+echo "Installing zsh plugins..."
+git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 echo ""
 echo "Setting Zsh as default shell..."
