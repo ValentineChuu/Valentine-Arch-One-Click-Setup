@@ -48,11 +48,11 @@ read -r gpu_choice
 case $gpu_choice in
     1)
         echo "Installing NVIDIA drivers..."
-        yay -S --needed $NOCONFIRM nvidia-open nvidia-utils nvidia-settings
+        yay -S --needed $NOCONFIRM nvidia-open nvidia-settings nvidia-utils
         ;;
     2)
         echo "Installing AMD drivers..."
-        sudo pacman -S --needed $NOCONFIRM mesa vulkan-radeon
+        sudo pacman -S --needed $NOCONFIRM mesa vulkan-radeon rocm-smi-libQ
         ;;
     3)
         echo "Installing Intel drivers..."
@@ -93,9 +93,10 @@ PACKAGES=(
     xdg-desktop-portal-gtk
     hyprshutdown
     awww
-    ags
+    aylurs-gtk-shell-git
     cava
     pavucontrol
+    playerctl
     blueman
     tree
     rsync
@@ -141,12 +142,12 @@ else
     FINAL_PACKAGES=()
 
     echo "Package selection phase"
-    echo "If you want to skip a package, type its name exactly. Press ENTER to keep it."
+    echo "If you want to skip a package, type "skip". Press ENTER to keep it."
     echo ""
 
     for pkg in "${MISSING_PACKAGES[@]}"; do
         read -r -p "Skip '$pkg'? " input || true
-        if [[ "$input" == "$pkg" ]]; then
+        if [[ "$input" == "skip" ]]; then
             echo "  Skipping $pkg"
         else
             FINAL_PACKAGES+=("$pkg")
@@ -219,8 +220,8 @@ for dir in "${DOTFILES[@]}"; do
 done
 
 if [ -d "./zsh" ]; then
-    cp -r ./zsh "$HOME/"
-    echo "  Deployed zsh -> ~/.zsh"
+    cp -r ./zsh/. "$HOME/"
+    echo "  Deployed zsh -> ~/.zsh/."
 else
     echo "  Warning: ./zsh not found, skipping."
 fi
