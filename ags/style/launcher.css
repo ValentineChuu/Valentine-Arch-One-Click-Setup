@@ -1,0 +1,62 @@
+.launcher {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.launcher-app-selected {
+  background: var(--accent);
+  border-radius: 8px;
+}
+
+.launcher-separator {
+  background: var(--bgAlt);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.launcher-search {
+  padding: 8px;
+}
+
+.launcher-entry {
+  all: unset;
+  caret-color: var(--accentAlt);
+}
+
+.launcher-results {
+  padding: 4px 0;
+}
+
+.launcher-empty {
+  opacity: 0.5;
+}
+
+.launcher-app-item {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.launcher-app-name {
+  font-weight: bold;
+}
+
+.launcher-app-desc {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.launcher-emoji-grid {
+  padding: 4px;
+}
+
+.launcher-emoji-item {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.launcher-emoji-char {
+  font-size: 1.5em;
+}

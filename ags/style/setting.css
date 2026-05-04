@@ -1,0 +1,19 @@
+.setting {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 8px;
+}
+
+.setting-nw-entry-concealed {
+  letter-spacing: 4px;
+}
+
+.setting-bt-pair-confirmation {
+  background: var(--fg);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 2px var(--border);
+}
+
+.setting-bt-passkey {
+  font-weight: bold;
+}

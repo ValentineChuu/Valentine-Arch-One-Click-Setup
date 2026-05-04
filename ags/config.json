@@ -1,0 +1,48 @@
+{
+  "theme": "dracula",
+  "css": {
+    "windowBorderRadius": "100px",
+    "buttonBorderRadius": "100px"
+  },
+  "workspace": {
+    "allocation": 5
+  },
+  "clock": {
+    "military_time": false
+  },
+  "hardware": {
+    "wave_monitor": true
+  },
+  "cava": {
+    "shared_cava": true,
+    "channelMode": "stereo",
+    "visualizer": "wave",
+    "bars": 8,
+    "colors": [ "--accent", 0.2 ],
+    "layerColors": false,
+    "layers": [
+      { "name": "bass", "lowCutoff": 20, "highCutoff": 300, "color": [ ] },
+      { "name": "mid", "lowCutoff": 300, "highCutoff": 2000, "color": [ ] },
+      { "name": "treble", "lowCutoff": 2000, "highCutoff": 10000, "color": [ ] }
+    ],
+    "media_cava": {
+      "channelMode": "stereo",
+      "visualizer": "wave",
+      "bars": 8,
+      "colors": [ "--accent", 0.15 ],
+      "layerColors": false,
+      "layers": [
+        { "name": "bass", "lowCutoff": 20, "highCutoff": 300, "color": [ ] },
+        { "name": "mid", "lowCutoff": 300, "highCutoff": 2000, "color": [ ] },
+        { "name": "treble", "lowCutoff": 2000, "highCutoff": 10000, "color": [ ] }
+      ]
+    }
+  },
+  "blur": {
+    "type": "gaussian",
+    "strength": 3,
+    "opacity": 0.5,
+    "angle": 0,
+    "rotation": 10
+  }
+}

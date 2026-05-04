@@ -1,0 +1,86 @@
+/* Bar */
+.bar-right {
+  background: var(--bg);
+}
+
+.bar-ws {
+  background: var(--bg);
+}
+
+.bar-ws .occupied {
+  background: var(--bgAlt);
+}
+
+.bar-ws .focused {
+  background: var(--accent);
+}
+
+.bar-clock {
+  background: var(--bgAlt);
+  box-shadow: none;
+}
+
+.bar-media {
+  background: var(--bg);
+}
+
+.media-progress-bar {
+  transform: translateY(8px);
+}
+
+.bar-media-big {
+  background: var(--bg);
+  border-radius: 32px;
+}
+
+.big-media-control {
+  transform: translateY(8px);
+}
+
+.big-media-progress-label {
+  transform: translateY(16px);
+}
+
+.bar-hw {
+  background: var(--bg);
+  font-size: 18px;
+}
+
+.bar-hw . {
+  font-size: 18px;
+  transform: translateX(-1px);
+}
+
+.bar-hw . {
+  font-size: 18px;
+  transform: translateX(-1.2px);
+}
+
+.bar-hw .󰢮 {
+  font-size: 18px;
+  transform: translateX(0.7px);
+}
+
+.bar-hw-fill {
+  background: var(--bgAlt);
+}
+
+.bar-bt {
+  background: var(--fg);
+}
+
+.bar-nw {
+  background: var(--fg);
+}
+
+.bar-bat {
+  background: var(--fg);
+}
+
+.bar-setting {
+  background: var(--fg);
+}
+
+.bar-separator {
+  background: var(--bgAlt);
+}
