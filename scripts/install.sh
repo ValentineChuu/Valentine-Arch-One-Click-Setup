@@ -213,7 +213,7 @@ DOTFILES=(ags hypr kitty)
 for dir in "${DOTFILES[@]}"; do
     if [ -d "./$dir" ]; then
         mkdir -p ~/.config
-        cp -r "./$dir" ~/.config/
+        rsync -av --delete "./$dir/" "$HOME/.config/$dir"
         echo "  Deployed $dir -> ~/.config/$dir"
     else
         echo "  Warning: ./$dir not found, skipping."
@@ -229,17 +229,13 @@ else
 fi
 
 echo "Deploying oh-my-zsh..."
-if [ -d "./zsh/oh-my-zsh" ]; then
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
-        echo "  Cloned fresh oh-my-zsh"
-    else
-        echo "  ~/.oh-my-zsh already exists, skipping clone"
-    fi
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+echo "  Installed oh-my-zsh"
+if [ -d "./zsh/oh-my-zsh/custom" ]; then
     rsync -av --no-links ./zsh/oh-my-zsh/custom/ "$HOME/.oh-my-zsh/custom/"
     echo "  Deployed custom/ -> ~/.oh-my-zsh/custom/"
 else
-    echo "  Warning: ./zsh/oh-my-zsh not found, skipping."
+    echo "  Warning: ./zsh/oh-my-zsh/custom not found, skipping."
 fi
 
 echo ""

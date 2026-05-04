@@ -11,7 +11,7 @@ rsync -av --delete ".config/kitty/" "Valentine-Arch-One-Click-Setup/kitty/"
 # zsh
 rsync -av --delete ".zshrc" "Valentine-Arch-One-Click-Setup/zsh/"
 rsync -av --delete ".p10k.zsh" "Valentine-Arch-One-Click-Setup/zsh/"
-rsync -av --delete ".oh-my-zsh/" "Valentine-Arch-One-Click-Setup/zsh/oh-my-zsh"
+rsync -av --delete --no-links ".oh-my-zsh/custom/" "Valentine-Arch-One-Click-Setup/zsh/oh-my-zsh/custom"
 
 echo "Sync complete. Remember to commit your changes:"
 
